@@ -23,24 +23,17 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        // -NAVEGAÇÃO PARA A TELA DE REGISTRO ---
-        val textSignUp = findViewById<TextView>(R.id.textSignUp)
-        textSignUp.setOnClickListener {
-            val intent = Intent(this, RegisterActivity::class.java)
-            startActivity(intent)
-        }
-
 
         val emailInput = findViewById<EditText>(R.id.editEmail)
         val passwordInput = findViewById<EditText>(R.id.editPassword)
         val loginButton = findViewById<Button>(R.id.btnLogin)
 
-        // botão de login.
+        // simulação botão de login.
         loginButton.setOnClickListener {
             val email = emailInput.text.toString().trim()
             val password = passwordInput.text.toString().trim()
 
-            // 4. Verificar se algum dos campos está vazio.
+            //Verificar se algum dos campos está vazio.
             if (email.isBlank() || password.isBlank()) {
                 Toast.makeText(this, "Por favor, preencha todos os campos.", Toast.LENGTH_SHORT).show()
             } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
@@ -49,7 +42,7 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this,"A senha deve possuir 8 caracteres",Toast.LENGTH_SHORT).show()
             }else {
                 Toast.makeText(this, "Login efetuado com sucesso!", Toast.LENGTH_SHORT).show()
-                // lógica de login real (ex: verificar com um banco de dados).
+                // lógica de login real veria aqui
             }
         }
     }

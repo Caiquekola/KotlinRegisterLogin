@@ -1,136 +1,324 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    android:fillViewport="true"
+    android:background="#E6E6E6"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        android:padding="24dp">
+    <!-- HEADER -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/header"
+        android:layout_width="0dp"
+        android:layout_height="116dp"
+        android:background="#0B1D33"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
+            android:id="@+id/tvLogo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
-            android:fontFamily="@font/south_brittany"
-            android:text="Login"
-            android:textColor="#000000"
-            android:textSize="80sp"
-            android:textStyle="italic" />
+            android:layout_marginStart="120dp"
+            android:layout_marginBottom="36dp"
+            android:letterSpacing="0.07"
+            android:text="MX SEGUROS"
+            android:textColor="#FFFFFF"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <TextView
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnVoltar"
+        style="@style/Widget.Material3.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="Voltar"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        app:backgroundTint="#0B1D33"
+        app:cornerRadius="0dp"
+        android:layout_marginTop="-10dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header"/>
+
+    <!-- ÁREA ROLÁVEL -->
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/header"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Email Address" />
-
-        <EditText
-            android:id="@+id/editEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:background="@android:drawable/edit_text"
-            android:hint="email@domain.com"
-            android:inputType="textEmailAddress"
-            android:padding="10dp"
-            android:textSize="15sp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Password" />
-
-        <EditText
-            android:id="@+id/editPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
-            android:background="@android:drawable/edit_text"
-            android:hint="Enter Password"
-            android:inputType="textPassword"
-            android:padding="10dp"
-            android:textSize="15sp" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            android:paddingBottom="24dp">
 
             <TextView
+                android:id="@+id/tvTitulo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_marginBottom="16dp"
-                android:text="By signing up you accept our"
-                android:textSize="14sp" />
+                android:text="Acionar o Corretor"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="#222222"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="12dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <View
+                android:id="@+id/linha"
+                android:layout_width="2dp"
+                android:layout_height="0dp"
+                android:background="#C6C6C6"
+                android:layout_marginStart="22dp"
+                android:layout_marginTop="22dp"
+                app:layout_constraintTop_toBottomOf="@id/tvTitulo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/bottomSpacer"/>
+
+            <View
+                android:id="@+id/pino"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="-7dp"
+                android:background="@drawable/dot_navy"
+                app:layout_constraintStart_toStartOf="@id/linha"
+                app:layout_constraintTop_toTopOf="@id/linha"/>
 
             <TextView
+                android:id="@+id/tvObrig"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
-                android:text=" Terms Of Use"
-                android:textColor="#2196F3"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-
-        <Button
-            android:id="@+id/btnLogin"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="16dp"
-            android:backgroundTint="#1d81d1"
-            android:padding="12dp"
-            android:text="LOGIN"
-            android:textColor="#FFFFFF" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:text="or"
-            android:textColor="#000000"
-            android:textSize="14sp" />
-
-        <ImageButton
-            android:id="@+id/btnGoogle"
-            android:layout_width="220dp"
-            android:layout_height="50dp"
-            android:layout_marginBottom="16dp"
-            android:background="@null"
-            android:contentDescription="Sign in with Google"
-            android:scaleType="fitXY"
-            android:src="@drawable/google_signup" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+                android:text="Preencher campos obrigatórios "
+                android:textSize="13sp"
+                android:textColor="#444444"
+                android:layout_marginStart="12dp"
+                app:layout_constraintStart_toEndOf="@id/linha"
+                app:layout_constraintTop_toTopOf="@id/linha"/>
 
             <TextView
+                android:id="@+id/tvObrigAsterisco"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Don't have account?"
-                android:textColor="#000000"
-                android:textSize="14sp" />
+                android:text="(*)"
+                android:textSize="13sp"
+                android:textColor="#D23F3F"
+                app:layout_constraintBaseline_toBaselineOf="@id/tvObrig"
+                app:layout_constraintStart_toEndOf="@id/tvObrig"/>
+
+            <!-- ===== Telefone ===== -->
+            <TextView
+                android:id="@+id/lblTel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Telefone para Contato"
+                android:textStyle="bold"
+                android:textColor="#333333"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="14dp"
+                app:layout_constraintStart_toEndOf="@id/linha"
+                app:layout_constraintTop_toBottomOf="@id/tvObrig"/>
 
             <TextView
-                android:id="@+id/textSignUp"
+                android:id="@+id/lblTelStar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text=" Sign up here"
-                android:textColor="#2196F3"
-                android:textSize="14sp" />
-        </LinearLayout>
+                android:text="*"
+                android:textStyle="bold"
+                android:textColor="#D23F3F"
+                app:layout_constraintBaseline_toBaselineOf="@id/lblTel"
+                app:layout_constraintStart_toEndOf="@id/lblTel"/>
 
-    </LinearLayout>
-</ScrollView>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilTelefone"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:layout_marginTop="6dp"
+                app:boxStrokeColor="#B0B0B0"
+                app:layout_constraintTop_toBottomOf="@id/lblTel"
+                app:layout_constraintStart_toEndOf="@id/linha"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="0dp"
+                android:layout_marginStart="18dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Digite seu Telefone!"
+                    android:inputType="phone"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/lblAss"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Assunto"
+                android:textStyle="bold"
+                android:textColor="#333333"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="14dp"
+                app:layout_constraintStart_toEndOf="@id/linha"
+                app:layout_constraintTop_toBottomOf="@id/tilTelefone"/>
+
+            <TextView
+                android:id="@+id/lblAssStar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="*"
+                android:textStyle="bold"
+                android:textColor="#D23F3F"
+                app:layout_constraintBaseline_toBaselineOf="@id/lblAss"
+                app:layout_constraintStart_toEndOf="@id/lblAss"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilAssunto"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                app:boxStrokeColor="#B0B0B0"
+                app:layout_constraintTop_toBottomOf="@id/lblAss"
+                app:layout_constraintStart_toEndOf="@id/linha"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="18dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Digite o Assunto!"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/lblMsg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mensagem"
+                android:textStyle="bold"
+                android:textColor="#333333"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="14dp"
+                app:layout_constraintStart_toEndOf="@id/linha"
+                app:layout_constraintTop_toBottomOf="@id/tilAssunto"/>
+
+            <TextView
+                android:id="@+id/lblMsgStar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="*"
+                android:textStyle="bold"
+                android:textColor="#D23F3F"
+                app:layout_constraintBaseline_toBaselineOf="@id/lblMsg"
+                app:layout_constraintStart_toEndOf="@id/lblMsg"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilMensagem"
+                style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                app:boxStrokeColor="#B0B0B0"
+                app:layout_constraintTop_toBottomOf="@id/lblMsg"
+                app:layout_constraintStart_toEndOf="@id/linha"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="18dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:gravity="top|start"
+                    android:hint="Digite sua Mensagem!"
+                    android:inputType="textMultiLine"
+                    android:paddingTop="10dp"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/lblAnexar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Anexar fotos"
+                android:textStyle="bold"
+                android:textColor="#333333"
+                android:layout_marginStart="18dp"
+                android:layout_marginTop="18dp"
+                app:layout_constraintStart_toEndOf="@id/linha"
+                app:layout_constraintTop_toBottomOf="@id/tilMensagem"/>
+
+            <TextView
+                android:id="@+id/lblObsAnexar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(Você pode anexar até 5 imagens)"
+                android:textSize="12sp"
+                android:textColor="#777777"
+                app:layout_constraintStart_toStartOf="@id/lblAnexar"
+                app:layout_constraintTop_toBottomOf="@id/lblAnexar"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCamera"
+                style="@style/Widget.Material3.Button"
+                android:layout_width="0dp"
+                android:layout_marginLeft="18dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="10dp"
+                android:text="Tirar foto com a câmera"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                app:icon="@drawable/badge_camera"
+                app:iconPadding="12dp"
+                app:iconGravity="textStart"
+                app:cornerRadius="12dp"
+                app:iconTint="@null"
+                app:iconSize="28dp"
+                app:backgroundTint="#0B1D33"
+                app:layout_constraintTop_toBottomOf="@id/lblObsAnexar"
+                app:layout_constraintStart_toEndOf="@id/linha"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnGaleria"
+                style="@style/Widget.Material3.Button"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginLeft="18dp"
+                android:text="Escolher foto do álbum"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                app:icon="@drawable/badge_gallery"
+                app:iconPadding="12dp"
+                app:iconGravity="textStart"
+                app:iconTint="@null"
+                app:iconSize="28dp"
+                app:cornerRadius="12dp"
+                app:backgroundTint="#0B1D33"
+                app:layout_constraintTop_toBottomOf="@id/btnCamera"
+                app:layout_constraintStart_toEndOf="@id/linha"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <Space
+                android:id="@+id/bottomSpacer"
+                android:layout_width="0dp"
+                android:layout_height="16dp"
+                app:layout_constraintTop_toBottomOf="@id/btnGaleria"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

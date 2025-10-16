@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- “tag” verde atrás do ícone -->
+    <item>
+        <shape android:shape="rectangle">
+            <size android:width="28dp" android:height="22dp"/>
+            <corners android:radius="6dp"/>
+            <solid android:color="#0AAE9C"/>
+        </shape>
+    </item>
+    <!-- Ícone de câmera centralizado (usa ícone padrão do Android) -->
+    <item
+        android:drawable="@android:drawable/ic_menu_camera"
+        android:gravity="center"
+        android:tint="#FFFFFF"/>
+</layer-list>
